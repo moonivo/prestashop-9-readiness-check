@@ -1,0 +1,333 @@
+{
+    "PrestaShop 9 Readiness Check": {
+        "mnvps9check": true,
+        "report": true
+    },
+    "Find out what in your store would break on PrestaShop 9: modules, theme, overrides and server. Read-only, changes nothing.": {
+        "mnvps9check": true
+    },
+    "Run the check first, then download the report.": {
+        "mnvps9check": true
+    },
+    "Check my store": {
+        "mnvps9check": true
+    },
+    "Check again": {
+        "mnvps9check": true
+    },
+    "Checking…": {
+        "mnvps9check": true
+    },
+    "Server and settings": {
+        "mnvps9check": true
+    },
+    "Listing modules, theme and overrides": {
+        "mnvps9check": true
+    },
+    "Reading {name}": {
+        "mnvps9check": true
+    },
+    "Finished in {seconds} s: {files} files read.": {
+        "mnvps9check": true
+    },
+    "The check stopped: {error}. Reload the page and try again.": {
+        "mnvps9check": true
+    },
+    "Last check: {date}": {
+        "mnvps9check": true
+    },
+    "Download the report (PDF)": {
+        "mnvps9check": true
+    },
+    "Print": {
+        "mnvps9check": true
+    },
+    "Your store looks ready for PrestaShop 9": {
+        "mnvps9check": true
+    },
+    "Nothing we check would break. Back up the store and run the upgrade on a copy first.": {
+        "mnvps9check": true
+    },
+    "Your store needs some work before PrestaShop 9": {
+        "mnvps9check": true
+    },
+    "Some modules, overrides or settings would break pages or features after the upgrade. Each one is listed below with what to do.": {
+        "mnvps9check": true
+    },
+    "would break": {
+        "mnvps9check": true
+    },
+    "worth checking": {
+        "mnvps9check": true
+    },
+    "Your store already runs PrestaShop {version}": {
+        "mnvps9check": true
+    },
+    "No module, theme or override uses code that PrestaShop 9 removed.": {
+        "mnvps9check": true
+    },
+    "Some modules, the theme or overrides still use code that PrestaShop 9 removed, so those features may already fail. Each one is listed below.": {
+        "mnvps9check": true
+    },
+    "Something not working since the upgrade?": {
+        "mnvps9check": true
+    },
+    "Moonivo updates or replaces the modules, themes and overrides that PrestaShop 9 broke.": {
+        "mnvps9check": true
+    },
+    "Ask for a fixed price": {
+        "mnvps9check": true
+    },
+    "We can fix these for a fixed price": {
+        "mnvps9check": true
+    },
+    "Upgrade effort": {
+        "mnvps9check": true
+    },
+    "Simple": {
+        "mnvps9check": true
+    },
+    "Medium": {
+        "mnvps9check": true
+    },
+    "Complex": {
+        "mnvps9check": true
+    },
+    "A routine upgrade: update the server, update the flagged modules, upgrade.": {
+        "mnvps9check": true
+    },
+    "Several modules or overrides need updates or replacements before upgrading.": {
+        "mnvps9check": true
+    },
+    "Plan it as a project: custom code, overrides and the theme need rework, best done on a copy of the store.": {
+        "mnvps9check": true
+    },
+    "A rough guide based on what this check can read; custom code can hide more.": {
+        "mnvps9check": true
+    },
+    "Modules": {
+        "mnvps9check": true
+    },
+    "Theme": {
+        "mnvps9check": true
+    },
+    "Overrides": {
+        "mnvps9check": true
+    },
+    "now: {value}": {
+        "mnvps9check": true
+    },
+    "needed: {value}": {
+        "mnvps9check": true
+    },
+    "disabled": {
+        "mnvps9check": true
+    },
+    "line": {
+        "mnvps9check": true
+    },
+    "The store has no overrides.": {
+        "mnvps9check": true
+    },
+    "Overrides replace core code. Each one has to be checked against PrestaShop 9, even when nothing below is flagged.": {
+        "mnvps9check": true
+    },
+    "in a bundled library": {
+        "mnvps9check": true
+    },
+    "Updated by the upgrade": {
+        "mnvps9check": true
+    },
+    "Comes with PrestaShop": {
+        "mnvps9check": true
+    },
+    "{n} modules that come with PrestaShop": {
+        "mnvps9check": true
+    },
+    "PrestaShop module: update to its latest version": {
+        "mnvps9check": true
+    },
+    "Needs an update or a replacement": {
+        "mnvps9check": true
+    },
+    "Worth checking": {
+        "mnvps9check": true
+    },
+    "No problems found": {
+        "mnvps9check": true
+    },
+    "Files missing": {
+        "mnvps9check": true
+    },
+    "PHP version": {
+        "mnvps9check": true
+    },
+    "PHP extensions": {
+        "mnvps9check": true
+    },
+    "missing: {value}": {
+        "mnvps9check": true
+    },
+    "PHP memory limit": {
+        "mnvps9check": true
+    },
+    "Max execution time": {
+        "mnvps9check": true
+    },
+    "allow_url_fopen": {
+        "mnvps9check": true
+    },
+    "Database server": {
+        "mnvps9check": true
+    },
+    "MyISAM tables": {
+        "mnvps9check": true
+    },
+    "Tables not in utf8mb4": {
+        "mnvps9check": true
+    },
+    "Advanced Stock Management": {
+        "mnvps9check": true
+    },
+    "Delivery to several addresses": {
+        "mnvps9check": true
+    },
+    "SMTP encryption": {
+        "mnvps9check": true
+    },
+    "PrestaShop 9 needs PHP 8.1 or later. Your host can usually switch it in the hosting panel; test the store on PHP 8 first, older modules often fail there.": {
+        "mnvps9check": true
+    },
+    "PrestaShop 9 removed Advanced Stock Management. Stock movements and warehouses stop working; plan how you manage stock first.": {
+        "mnvps9check": true
+    },
+    "PrestaShop 9 removed delivery to several addresses in one order.": {
+        "mnvps9check": true
+    },
+    "PrestaShop 9 sends mail with TLS or no encryption only. Switch to TLS (usually port 587) before upgrading.": {
+        "mnvps9check": true
+    },
+    "Convert them to InnoDB before upgrading; MyISAM tables are not transactional and slow the upgrade down.": {
+        "mnvps9check": true
+    },
+    "Older tables use utf8 instead of utf8mb4. Not blocking, but emoji and some characters can be lost.": {
+        "mnvps9check": true
+    },
+    "PrestaShop 9 needs MySQL 5.7+ or MariaDB 10.2+.": {
+        "mnvps9check": true
+    },
+    "PrestaShop 9 recommends at least 512M.": {
+        "mnvps9check": true
+    },
+    "Calls {subject}, removed in PrestaShop {extra}. Whatever uses it stops with a fatal error.": {
+        "mnvps9check": true
+    },
+    "Uses the class {subject}, removed in PrestaShop {extra}.": {
+        "mnvps9check": true
+    },
+    "Uses the constant {subject}, removed in PrestaShop {extra}.": {
+        "mnvps9check": true
+    },
+    "Uses the hook {subject}, which PrestaShop {extra} no longer triggers: that feature stops working.": {
+        "mnvps9check": true
+    },
+    "Redefines {subject} without that return type, which PrestaShop 9 added: fatal error as soon as the file loads.": {
+        "mnvps9check": true
+    },
+    "Changes {subject}, a back-office page PrestaShop 9 rebuilt: the change silently stops working.": {
+        "mnvps9check": true
+    },
+    "Asks for the service {subject}, which PrestaShop 9 no longer has.": {
+        "mnvps9check": true
+    },
+    "Uses {subject}, which PrestaShop 9 no longer includes, without shipping its own copy.": {
+        "mnvps9check": true
+    },
+    "Calls {subject}, removed in PHP {extra}; PrestaShop 9 needs PHP 8.1+.": {
+        "mnvps9check": true
+    },
+    "Uses {subject}, a syntax PHP 8 rejects: the file does not load.": {
+        "mnvps9check": true
+    },
+    "Declares __autoload(), removed in PHP 8.": {
+        "mnvps9check": true
+    },
+    "The module declares support up to PrestaShop {subject}: PrestaShop 9 will not install it until the author releases an update.": {
+        "mnvps9check": true
+    },
+    "{subject} is opened directly by the browser; PrestaShop 9 blocks direct access to PHP files in modules (Apache).": {
+        "mnvps9check": true
+    },
+    "Loads {subject} from the core, a file PrestaShop 9 no longer has.": {
+        "mnvps9check": true
+    },
+    "The template uses {subject}, which PrestaShop 9 templates no longer receive.": {
+        "mnvps9check": true
+    },
+    "The code checks the PrestaShop version or the library is bundled, so this may already be handled.": {
+        "mnvps9check": true
+    },
+    "Default PrestaShop theme: updated by the upgrade.": {
+        "mnvps9check": true
+    },
+    "Default PrestaShop theme.": {
+        "mnvps9check": true
+    },
+    "Child theme of {parent}.": {
+        "mnvps9check": true
+    },
+    "Custom theme: test every page on a copy of the store after the upgrade.": {
+        "mnvps9check": true
+    },
+    "Declares PrestaShop {from} – {to}.": {
+        "mnvps9check": true
+    },
+    "Want it done for you?": {
+        "mnvps9check": true
+    },
+    "Moonivo upgrades PrestaShop stores to version 9 for a fixed price: we update or replace the flagged modules, fix the overrides and the theme, and switch over on a tested copy, so the live store keeps selling.": {
+        "mnvps9check": true
+    },
+    "Get a fixed price": {
+        "mnvps9check": true
+    },
+    "from €900": {
+        "mnvps9check": true
+    },
+    "Want us to do it? Fixed price from €900": {
+        "mnvps9check": true
+    },
+    "Not sure about the items worth checking?": {
+        "mnvps9check": true
+    },
+    "Our store health check looks at them together with security, errors, speed and SEO basics, and tells you in writing what to fix first and what it would cost.": {
+        "mnvps9check": true
+    },
+    "See the store health check": {
+        "mnvps9check": true
+    },
+    "€190 · written report in 3 working days": {
+        "mnvps9check": true
+    },
+    "Want us to look at them? Store health check €190": {
+        "mnvps9check": true
+    },
+    "Your store is in good shape for PrestaShop 9": {
+        "mnvps9check": true
+    },
+    "To keep it that way, Moonivo checks and maintains PrestaShop stores and builds the modules they need.": {
+        "mnvps9check": true
+    },
+    "See plans and prices": {
+        "mnvps9check": true
+    },
+    "This check runs in your store only. Nothing is sent anywhere.": {
+        "mnvps9check": true
+    },
+    "Reads your modules, theme and overrides and checks the server, then tells you what would break on PrestaShop 9 and how much work the upgrade is. It changes nothing in your store.": {
+        "report": true
+    },
+    "Your store": {
+        "report": true
+    }
+}

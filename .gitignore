@@ -1,0 +1,9 @@
+# Extracted PrestaShop APIs (about 50 MB): rebuild with dev/api/extract.php
+dev/api/api-*.json
+dev/api/hook-*.xml
+
+# Built release zips
+*.zip
+
+.idea/
+.vscode/

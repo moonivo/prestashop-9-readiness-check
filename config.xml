@@ -2,7 +2,7 @@
 <module>
     <name>mnvps9check</name>
     <displayName><![CDATA[PrestaShop 9 Readiness Check]]></displayName>
-    <version><![CDATA[1.1.1]]></version>
+    <version><![CDATA[1.1.2]]></version>
     <description><![CDATA[Find out what in your store would break on PrestaShop 9: modules, theme, overrides and server. Read-only, changes nothing.]]></description>
     <author><![CDATA[Moonivo]]></author>
     <tab><![CDATA[administration]]></tab>

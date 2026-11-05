@@ -1,0 +1,138 @@
+<?php
+/**
+ * 2026 Moonivo
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@moonivo.com so we can send you a copy immediately.
+ *
+ * @author Moonivo <support@moonivo.com>
+ * @copyright 2026 Moonivo
+ * @license https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0
+ *
+ * @see https://moonivo.com
+ */
+
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_5d0c204a7a0c0a10bde0e5fa878b1dbe'] = 'PrestaShop 9 Kompatibilitätsprüfung';
+$_MODULE['<{mnvps9check}prestashop>report_5d0c204a7a0c0a10bde0e5fa878b1dbe'] = 'PrestaShop 9 Kompatibilitätsprüfung';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_f8c72db34ee6d4aaf2f90a777b47a078'] = 'Finden Sie heraus, was in Ihrem Shop unter PrestaShop 9 nicht mehr funktionieren würde: Module, Theme, Overrides und Server. Nur lesend, ändert nichts.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_8714a5ea1233a234914d26ac7ac557c6'] = 'Führen Sie zuerst die Prüfung durch und laden Sie dann den Bericht herunter.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_77b5af491994fcf90c159c8af5770aee'] = 'Shop prüfen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_7cf37d1bcfb5bc39aed23c66c5e4c892'] = 'Erneut prüfen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_cbe701b8da0ead3c572a60947a9280d9'] = 'Prüfung läuft…';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_ea5018791a6a9ecd0728237f2d6030a8'] = 'Server und Einstellungen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_933dff344eafac1dd7b0428f6bc69329'] = 'Module, Theme und Overrides werden erfasst';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_7d8180d7cddb65401f660f3fecf6b5f1'] = '{name} wird gelesen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_d79a31df8f99dedcdd68dc5826890803'] = 'Fertig in {seconds} s: {files} Dateien gelesen.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_52658a03f12652e9026a87c5da0483a4'] = 'Die Prüfung wurde abgebrochen: {error}. Laden Sie die Seite neu und versuchen Sie es erneut.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_6f8c7ff0527ec87541b99fc68fd43db8'] = 'Letzte Prüfung: {date}';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_b2431ed1b4e94e375f4da529ee99eb77'] = 'Bericht herunterladen (PDF)';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_13dba24862cf9128167a59100e154c8d'] = 'Drucken';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_18cb9ebb80025ff522d532d7b83e1efb'] = 'Ihr Shop scheint bereit für PrestaShop 9';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_792cac91461697146cdaecd646398094'] = 'Nichts von dem, was wir prüfen, würde ausfallen. Sichern Sie den Shop und führen Sie das Upgrade zuerst auf einer Kopie durch.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_ce1102375b2461844c206ae97ed1aa5d'] = 'Ihr Shop braucht vor PrestaShop 9 noch etwas Arbeit';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_60bb542623a330f5cb34fafa3c24b91a'] = 'Einige Module, Overrides oder Einstellungen würden nach dem Upgrade Seiten oder Funktionen lahmlegen. Jeder Punkt ist unten mit der nötigen Maßnahme aufgeführt.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_6f238b71e0ac42fb9425af5cf295053b'] = 'würden ausfallen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_3b61abaa4a8060cda08c55f494407383'] = 'zu prüfen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_71a562f305f8ccd274e4e715043e5779'] = 'Ihr Shop läuft bereits mit PrestaShop {version}';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_74f43530ffea3964136bd2b8ca80e0db'] = 'Kein Modul, Theme oder Override verwendet Code, den PrestaShop 9 entfernt hat.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_bf872d1c2850b4ae70d1eb6868224819'] = 'Einige Module, das Theme oder Overrides verwenden noch Code, den PrestaShop 9 entfernt hat, daher können diese Funktionen bereits fehlschlagen. Jeder Punkt ist unten aufgeführt.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_0855a2ee328552406c28ca852002c249'] = 'Funktioniert seit dem Upgrade etwas nicht mehr?';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_3749e7840f6529094f1cbbf541e3c702'] = 'Moonivo aktualisiert oder ersetzt die Module, Themes und Overrides, die PrestaShop 9 lahmgelegt hat.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_ca70fc93a4d369ea785c111c8023431b'] = 'Festpreis anfragen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_a815a10a2328eba5343e67b99eb5109c'] = 'Wir beheben das zum Festpreis';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_5a4a3d2fd85ff7f8f869a9539e2744c5'] = 'Upgrade-Aufwand';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_1fbb1e3943c2c6c560247ac8f9289780'] = 'Einfach';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_87f8a6ab85c9ced3702b4ea641ad4bb5'] = 'Mittel';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_10b4eb76294b70d7fd6df997ff06edb1'] = 'Komplex';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_eba013e6b37d839a49c79178d234f43f'] = 'Ein Routine-Upgrade: Server aktualisieren, markierte Module aktualisieren, Upgrade durchführen.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_79a172444e485a3c2760fec0fd2b75f2'] = 'Mehrere Module oder Overrides müssen vor dem Upgrade aktualisiert oder ersetzt werden.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_1260c50bff0c1e661881b66280b2b28b'] = 'Planen Sie es als Projekt: Eigener Code, Overrides und das Theme müssen überarbeitet werden, am besten auf einer Kopie des Shops.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_cb9286ebeb92a42345a7b66d2a0792ac'] = 'Eine grobe Einschätzung auf Basis dessen, was diese Prüfung lesen kann; eigener Code kann mehr verbergen.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_bf17ac149e2e7a530c677e9bd51d3fd2'] = 'Module';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_d721757161f7f70c5b0949fdb6ec2c30'] = 'Theme';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_0ca08f8f4a8a19f7f1ae87c119494327'] = 'Overrides';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_205e8726e08a1fb685fec1acce602a4d'] = 'aktuell: {value}';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_2e5b8b9661d23ec0baecb7fc1aa2b5d7'] = 'erforderlich: {value}';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_075ae3d2fc31640504f814f60e5ef713'] = 'deaktiviert';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_6438c669e0d0de98e6929c2cc0fac474'] = 'Zeile';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_78a04e54bc1a78f535fd34f498a2da58'] = 'Der Shop hat keine Overrides.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_f32cf02a017ebd82bcb747d586c14909'] = 'Overrides ersetzen Core-Code. Jeder einzelne muss mit PrestaShop 9 geprüft werden, auch wenn unten nichts markiert ist.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_6f2c91dd6e629b71bbc0b75e283a6a63'] = 'in einer mitgelieferten Bibliothek';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_f397eff1ae42dd20c2994be334f827a5'] = 'Wird mit dem Upgrade aktualisiert';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_3498993c79493272666b2860687caa2a'] = 'Im Lieferumfang von PrestaShop';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_ea73d091910211dbe73b5b82d6e33133'] = '{n} mit PrestaShop gelieferte Module';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_0d0dd5e3e962ffaa4e92f09b7f4e7329'] = 'PrestaShop-Modul: auf die neueste Version aktualisieren';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_bb2c60d54f46d4925b8ccebffdaaed76'] = 'Aktualisierung oder Ersatz nötig';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_7048af3aa8df1ec2baa89786d69fa73f'] = 'Zu prüfen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_2817f1ba62d27e9280c97ab0d7931929'] = 'Keine Probleme gefunden';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_f5864347f96601ab20e69734bebdd441'] = 'Dateien fehlen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_fa374422dcbc5f017b5ecbc93355e02e'] = 'PHP-Version';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_5240b382fc154c936b2bb213a234cffa'] = 'PHP-Erweiterungen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_8ad81b3f613541a3264701e34345e886'] = 'fehlen: {value}';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_9b0b53d8c5a62263c7db8c9e1ae3b315'] = 'PHP-Speicherlimit';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_901e802a19e0134e35b58eb895979aa2'] = 'Maximale Ausführungszeit';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_717c9159dd7feb0726e20bd4074b6307'] = 'allow_url_fopen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_bc790b8c207967f4f8b4bf4784316aa9'] = 'Datenbankserver';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_c755f0e144f5af98a91d2a60a2c2b3df'] = 'MyISAM-Tabellen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_363208ca90dbaecf1f80aadc6582fff8'] = 'Tabellen nicht in utf8mb4';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_70b8833184afe1b309f4d679acff991e'] = 'Erweiterte Lagerverwaltung';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_23062392f1dc863418445a2dff819a3f'] = 'Lieferung an mehrere Adressen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_2caa95a27a51b9c11ef569e129b79a54'] = 'SMTP-Verschlüsselung';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_f3ebefbd0a98d4555d432d559c7335c1'] = 'PrestaShop 9 benötigt PHP 8.1 oder neuer. Ihr Hoster kann das meist im Hosting-Panel umstellen; testen Sie den Shop zuerst unter PHP 8, ältere Module scheitern dort oft.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_2f9d6575243b2d87751447bbd36e8e58'] = 'PrestaShop 9 hat die Erweiterte Lagerverwaltung entfernt. Lagerbewegungen und Lager funktionieren nicht mehr; planen Sie zuerst, wie Sie Ihren Bestand verwalten.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_befe4c8c3976330aa9fed37709e8f76a'] = 'PrestaShop 9 hat die Lieferung einer Bestellung an mehrere Adressen entfernt.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_3b9d9fc9e15020fe30ae120610941071'] = 'PrestaShop 9 versendet E-Mails nur mit TLS oder unverschlüsselt. Stellen Sie vor dem Upgrade auf TLS um (meist Port 587).';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_84f7ee90d23b5cd3c9504e5c6fbfe484'] = 'Konvertieren Sie sie vor dem Upgrade in InnoDB; MyISAM-Tabellen sind nicht transaktional und verlangsamen das Upgrade.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_46392963eacd3883a2c8d6c32b63a912'] = 'Ältere Tabellen verwenden utf8 statt utf8mb4. Nicht blockierend, aber Emojis und einige Zeichen können verloren gehen.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_32c00237f86d51700007863ae353dd3f'] = 'PrestaShop 9 benötigt MySQL 5.7+ oder MariaDB 10.2+.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_11e7eda21b268adb361b60d5940300c9'] = 'PrestaShop 9 empfiehlt mindestens 512M.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_d0bd1f69e83fa0eebae58aac7ff3f317'] = 'Ruft {subject} auf, in PrestaShop {extra} entfernt. Alles, was es nutzt, bricht mit einem Fatal Error ab.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_6b1aba532d0dfce8b89a300250f24fdd'] = 'Verwendet die Klasse {subject}, in PrestaShop {extra} entfernt.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_4ca3716ab53429af101d12a5ff265319'] = 'Verwendet die Konstante {subject}, in PrestaShop {extra} entfernt.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_4250725068e611b9c7619980af71b81f'] = 'Verwendet den Hook {subject}, den PrestaShop {extra} nicht mehr auslöst: Diese Funktion arbeitet dann nicht mehr.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_35d86ffb5a0d023f34c004628ec6cf35'] = 'Definiert {subject} ohne den Rückgabetyp neu, den PrestaShop 9 hinzugefügt hat: Fatal Error, sobald die Datei geladen wird.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_52d96f2b0854edd126d950ee80d78549'] = 'Ändert {subject}, eine Back-Office-Seite, die PrestaShop 9 neu aufgebaut hat: Die Änderung wirkt stillschweigend nicht mehr.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_5d6e35abd39db274e84d2885fe291010'] = 'Fordert den Service {subject} an, den PrestaShop 9 nicht mehr hat.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_6cb911efea26e10b38cb79c35ed7aa44'] = 'Verwendet {subject}, das PrestaShop 9 nicht mehr mitliefert, ohne eine eigene Kopie mitzubringen.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_4b413f20134ef0fff3e9bfdee9e731d3'] = 'Ruft {subject} auf, in PHP {extra} entfernt; PrestaShop 9 benötigt PHP 8.1+.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_4589d098d1b0131d48d59434b5a9341b'] = 'Verwendet {subject}, eine Syntax, die PHP 8 ablehnt: Die Datei wird nicht geladen.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_81f181152522cf10980b7346f91914fc'] = 'Deklariert __autoload(), in PHP 8 entfernt.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_39410766105ff66a910be2ffbb1b00c5'] = 'Das Modul gibt Unterstützung bis PrestaShop {subject} an: PrestaShop 9 installiert es erst, wenn der Autor ein Update veröffentlicht.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_5a3989f5d620794da6d06966ac151841'] = '{subject} wird direkt vom Browser aufgerufen; PrestaShop 9 sperrt den direkten Zugriff auf PHP-Dateien in Modulen (Apache).';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_f9f9061093b648947399b77f059ff88e'] = 'Lädt {subject} aus dem Core, eine Datei, die es in PrestaShop 9 nicht mehr gibt.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_e323e904f4a2d01990803393cc84c8a8'] = 'Das Template verwendet {subject}, das Templates in PrestaShop 9 nicht mehr erhalten.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_a308c0c451239dbc18ab63c97c5172c0'] = 'Der Code prüft die PrestaShop-Version oder die Bibliothek wird mitgeliefert, das ist also eventuell schon berücksichtigt.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_9213d6ade3aa801ca545e025b41970ee'] = 'Standard-Theme von PrestaShop: wird mit dem Upgrade aktualisiert.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_7af074989ef13fea46a1bfa20186fb2d'] = 'Standard-Theme von PrestaShop.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_ea0ee0fa2cf26b6ec7e29d59b10ab195'] = 'Child-Theme von {parent}.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_4300470cce2d8331c82f363699477467'] = 'Individuelles Theme: Testen Sie nach dem Upgrade jede Seite auf einer Kopie des Shops.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_3fd9782ca15216bc2d189cff237ea25c'] = 'Gibt PrestaShop {from} – {to} an.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_138d2da2d63e4617ca561f181fd12633'] = 'Sollen wir das für Sie erledigen?';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_534870dfd3eb407fe91f687a0374b195'] = 'Moonivo aktualisiert PrestaShop-Shops zum Festpreis auf Version 9: Wir aktualisieren oder ersetzen die markierten Module, korrigieren Overrides und Theme und stellen von einer getesteten Kopie aus um, damit der Live-Shop weiter verkauft.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_d5daef4e7f24b1bfdc3b75532250ae78'] = 'Festpreis anfordern';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_629cb3a98c95a8bcf5ecb2595e10ae75'] = 'ab 900 €';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_ffec43ea47d925a9ce6df807eadbafae'] = 'Sollen wir das übernehmen? Festpreis ab 900 €';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_b5d82fae91c99a9983b213459cb6c482'] = 'Unsicher bei den Punkten, die zu prüfen sind?';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_9d2662a8b5b8486dc1169a89a1ff0b61'] = 'Unser Shop-Check prüft sie zusammen mit Sicherheit, Fehlern, Geschwindigkeit und SEO-Grundlagen und sagt Ihnen schriftlich, was Sie zuerst beheben sollten und was es kosten würde.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_b8723b2ef7984edfe096a1d20ad5b91e'] = 'Zum Shop-Check';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_e7d1a9676234e25719a8789bff4bb7ed'] = '190 € · schriftlicher Bericht in 3 Werktagen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_7fc9aac905c4db154f3a44ed7f5d06a9'] = 'Sollen wir sie prüfen? Shop-Check 190 €';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_c1e38e85619ea181b15de6799686945d'] = 'Ihr Shop ist gut für PrestaShop 9 aufgestellt';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_2f40c9dc19b2b9c94309a48b9d2c69eb'] = 'Damit das so bleibt, prüft und wartet Moonivo PrestaShop-Shops und entwickelt die Module, die sie brauchen.';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_37b44368750a9cbc52e936fd75f5bbaa'] = 'Pakete und Preise ansehen';
+$_MODULE['<{mnvps9check}prestashop>mnvps9check_0a063ca0fa99ffecf572e65efad85df0'] = 'Diese Prüfung läuft nur in Ihrem Shop. Es werden keine Daten gesendet.';
+$_MODULE['<{mnvps9check}prestashop>report_a2dc80483bc47544f3364a6c9463d86f'] = 'Liest Ihre Module, Ihr Theme und Ihre Overrides, prüft den Server und zeigt dann, was unter PrestaShop 9 nicht mehr funktionieren würde und wie viel Aufwand das Upgrade ist. Ändert nichts in Ihrem Shop.';
+$_MODULE['<{mnvps9check}prestashop>report_b24c699eafef404c29d6e1781f51c333'] = 'Ihr Shop';

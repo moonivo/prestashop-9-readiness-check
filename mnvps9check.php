@@ -50,7 +50,7 @@ class Mnvps9check extends Module
     {
         $this->name = 'mnvps9check';
         $this->tab = 'administration';
-        $this->version = '1.1.1';
+        $this->version = '1.1.2';
         $this->author = 'Moonivo';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -88,7 +88,15 @@ class Mnvps9check extends Module
         $tab->class_name = self::TAB;
         $tab->module = $this->name;
         $tab->id_parent = (int) $this->tabId('AdminAdvancedParameters');
-        $names = array('lt' => 'PrestaShop 9 patikra', 'fr' => 'Diagnostic PrestaShop 9');
+        $names = array(
+            'lt' => 'PrestaShop 9 patikra',
+            'fr' => 'Diagnostic PrestaShop 9',
+            'es' => 'Diagnóstico PrestaShop 9',
+            'it' => 'Verifica PrestaShop 9',
+            'de' => 'PrestaShop 9 Prüfung',
+            'nl' => 'PrestaShop 9 check',
+            'pl' => 'Sprawdzenie PrestaShop 9',
+        );
         $tab->name = array();
         foreach (Language::getLanguages(false) as $lang) {
             $tab->name[$lang['id_lang']] = isset($names[$lang['iso_code']]) ? $names[$lang['iso_code']] : 'PrestaShop 9 check';

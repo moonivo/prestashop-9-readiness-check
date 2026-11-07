@@ -76,7 +76,9 @@ class MnvPs9Inventory
         $out = array();
         foreach ((array) $rows as $row) {
             $name = $row['name'];
-            if (!preg_match('/^[a-zA-Z0-9_-]+$/', $name) || $name === 'mnvps9check') {
+            // autoupgrade is the upgrade tool itself: it keeps code for every source version
+            // on purpose and is updated before the upgrade, not checked for it.
+            if (!preg_match('/^[a-zA-Z0-9_-]+$/', $name) || $name === 'mnvps9check' || $name === 'autoupgrade') {
                 continue;
             }
             $main = _PS_MODULE_DIR_ . $name . '/' . $name . '.php';
@@ -218,8 +220,12 @@ class MnvPs9Inventory
         $out = array();
         $name = basename($dir);
         $files = @scandir($dir);
+        $allowed = $this->htaccessAllowed($dir);
         foreach ((array) $files as $file) {
             if (strtolower(substr($file, -4)) !== '.php' || $file === $name . '.php' || $file === 'index.php') {
+                continue;
+            }
+            if ($this->matchesAny($file, $allowed)) {
                 continue;
             }
             $code = (string) @file_get_contents($dir . '/' . $file, false, null, 0, 20000);
@@ -229,6 +235,39 @@ class MnvPs9Inventory
         }
 
         return $out;
+    }
+
+    /**
+     * <Files>/<FilesMatch> blocks in the module's own .htaccess that grant access again
+     * (ps_facetedsearch does this for its cron files): those endpoints keep working.
+     *
+     * @return array [[isRegex, pattern], ...]
+     */
+    protected function htaccessAllowed($dir)
+    {
+        $out = array();
+        $conf = (string) @file_get_contents($dir . '/.htaccess');
+        if ($conf === '' || !preg_match_all('/<Files(Match)?\s+"?([^">]+?)"?\s*>(.*?)<\/Files(?:Match)?>/is', $conf, $m, PREG_SET_ORDER)) {
+            return $out;
+        }
+        foreach ($m as $block) {
+            if (preg_match('/Require\s+all\s+granted|Allow\s+from\s+all/i', $block[3])) {
+                $out[] = array($block[1] !== '', $block[2]);
+            }
+        }
+
+        return $out;
+    }
+
+    protected function matchesAny($file, array $patterns)
+    {
+        foreach ($patterns as $p) {
+            if ($p[0] ? @preg_match('~' . str_replace('~', '\~', $p[1]) . '~i', $file) : fnmatch($p[1], $file)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     protected function textFiles($dir)

@@ -50,7 +50,7 @@ class Mnvps9check extends Module
     {
         $this->name = 'mnvps9check';
         $this->tab = 'administration';
-        $this->version = '1.1.2';
+        $this->version = '1.1.3';
         $this->author = 'Moonivo';
         $this->need_instance = 0;
         $this->bootstrap = true;

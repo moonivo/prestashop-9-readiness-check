@@ -99,6 +99,9 @@ $clean = array(
     'string offset with brackets' => '<?php $s = "ab"; echo $s[0]; echo "{$s}";',
     'each as a method name' => '<?php class A { public function each() {} }',
     'own namespaced class named like a legacy one' => '<?php namespace Vendor\Mod; class Referrer {} new Referrer();',
+    'current controller API through the context' => '<?php $this->context->controller->registerJavascript("a", "b"); Context::getContext()->controller->addJS("x");',
+    'controller property, not a call' => '<?php $c = $this->context->controller->php_self;',
+    'compliancy max is not a version check' => '<?php class M { function __construct() { $this->ps_versions_compliancy = array("max" => _PS_VERSION_); } }',
 );
 foreach ($clean as $label => $code) {
     $f = scanCode($code, $rules, $php8);
@@ -126,6 +129,48 @@ foreach ($dirty as $d) {
     }
     check('dirty: ' . $d[2], $hit, json_encode($f));
 }
+
+// Errors and warnings by severity: the controller reached through the context, and code
+// that tests the version or the class before using it.
+$severity = array(
+    array('<?php class M extends Module { function hookDisplayHeader() { $this->context->controller->addJquery(); } }', 'Controller::addJquery', 'error'),
+    array('<?php Context::getContext()->controller->ajaxDie("{}");', 'Controller::ajaxDie', 'error'),
+    array('<?php $context->controller?->addJquery();', 'Controller::addJquery', 'error'),
+    array('<?php if (class_exists("AttributeCore")) { return new \AttributeCore(1); }', 'Attribute', 'warning'),
+    array('<?php if (VersionUtility::isPsVersionGreaterOrEqualTo("9.0.0")) { return 1; } return Tools::displayPrice(1);', 'Tools::displayPrice', 'warning'),
+    array('<?php if ($this->isPs8()) { return 1; } return Tools::displayPrice(1);', 'Tools::displayPrice', 'warning'),
+    array('<?php if (_PS_VERSION_ >= "9.0.0") { return 1; } return Tools::displayPrice(1);', 'Tools::displayPrice', 'warning'),
+    array('<?php if ($m instanceof Swift_Message) { $p = new Swift_Plugins_DecoratorPlugin(array()); }', 'Swift Mailer', 'warning'),
+    array('<?php $p = new Swift_Plugins_DecoratorPlugin(array());', 'Swift Mailer', 'error'),
+    array('<?php class M { function __construct() { $this->ps_versions_compliancy = array("max" => _PS_VERSION_); } function f() { return Tools::displayPrice(1); } }', 'Tools::displayPrice', 'error'),
+);
+foreach ($severity as $d) {
+    if (strpos($d[0], '?->') !== false && PHP_VERSION_ID < 80000) {
+        continue;
+    }
+    $f = scanCode($d[0], $rules, $php8);
+    $hit = false;
+    foreach ($f as $x) {
+        if ($x['subject'] === $d[1] && $x['severity'] === $d[2]) {
+            $hit = true;
+        }
+    }
+    check($d[2] . ': ' . $d[1] . ' in ' . substr($d[0], 6, 50), $hit, json_encode($f));
+}
+
+// A module that grants access to its own endpoints in .htaccess (ps_facetedsearch).
+$tmp = sys_get_temp_dir() . '/mnvps9-htaccess-' . getmypid();
+@mkdir($tmp);
+file_put_contents("$tmp/mod-cron.php", "<?php require_once dirname(__FILE__) . '/../../config/config.inc.php';");
+file_put_contents("$tmp/other.php", "<?php require_once dirname(__FILE__) . '/../../config/config.inc.php';");
+file_put_contents("$tmp/.htaccess", "<FilesMatch \"mod-.+\\.php$\">\n  Require all granted\n</FilesMatch>\n");
+$ends = $inv->directEndpoints($tmp);
+check('endpoint allowed by own .htaccess', !in_array('mod-cron.php', $ends, true), json_encode($ends));
+check('endpoint not covered by .htaccess', in_array('other.php', $ends, true), json_encode($ends));
+foreach (array("mod-cron.php", "other.php", ".htaccess") as $x) {
+    @unlink("$tmp/$x");
+}
+@rmdir($tmp);
 
 // ---- Optional: real PrestaShop 9 modules must show no errors ----------------
 foreach ($argv as $arg) {

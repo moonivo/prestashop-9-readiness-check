@@ -19,8 +19,9 @@ On a store that is already on PrestaShop 9, it lists what still uses removed cod
 ## Good to know
 
 - **Read-only.** It changes no files or settings. Nothing is sent anywhere: the report is saved in your store.
-- **Runs on PrestaShop 1.7, 8 and 9**, PHP 5.6 to 8.4. Tested on 1.7.6, 8.2 and 9.1.
+- **Runs on PrestaShop 1.7, 8 and 9**, PHP 5.6 to 8.4. Tested on 1.7.6, 8.2, 9.1 and 9.2.
 - **Languages:** English, French, Spanish, Italian, German, Dutch, Polish, Lithuanian.
+- **Guarded code is a warning, not an error.** Code behind a PrestaShop version check, `class_exists()`, `method_exists()` or `instanceof` usually already runs on both versions, so it is listed to check, not counted as a failure.
 - **A guide, not a guarantee.** It reads the code without running it, so code built at run time can hide more. Always test the upgrade on a copy of the store first.
 
 ## Install

@@ -263,11 +263,14 @@ class MnvPs9Scanner
             // Plain function calls and registerHook('name').
             if ($id === T_STRING) {
                 $j = $this->nextIndex($tokens, $i);
+                $prev = $this->prevId($tokens, $i);
+                $lc = strtolower($t[1]);
+                if ($lc === 'controller' && $this->isObjectOperator($prev)) {
+                    $this->checkControllerCall($tokens, $i, $file, $guards);
+                }
                 if ($j === null || $tokens[$j] !== '(') {
                     continue;
                 }
-                $prev = $this->prevId($tokens, $i);
-                $lc = strtolower($t[1]);
                 if ($lc === 'registerhook' || $lc === 'unregisterhook') {
                     foreach ($this->stringArgs($tokens, $j) as $hook) {
                         $this->checkHook($hook, $file, $line, $guards);
@@ -323,7 +326,15 @@ class MnvPs9Scanner
         $g = array();
         if (preg_match_all('/class_exists\s*\(\s*[\'"]\\\\?([\w\\\\]+)[\'"]/i', $code, $m)) {
             foreach ($m[1] as $c) {
-                $g['class:' . strtolower(ltrim($c, '\\'))] = true;
+                // class_exists('AttributeCore') guards new \AttributeCore and Attribute alike.
+                $g['class:' . strtolower($this->coreName($c))] = true;
+            }
+        }
+        // $x instanceof Swift_Message is false (not an error) when the class is gone, so the
+        // code behind it only runs where the class exists.
+        if (preg_match_all('/\binstanceof\s+\\\\?([\w\\\\]+)/i', $code, $m)) {
+            foreach ($m[1] as $c) {
+                $g['class:' . strtolower($this->coreName($c))] = true;
             }
         }
         if (preg_match_all('/(?:method_exists|is_callable)\s*\(\s*(?:array\s*\(|\[)?\s*[\'"]?([\w\\\\]+)[\'"]?\s*(?:::class)?\s*,\s*[\'"](\w+)[\'"]/i', $code, $m, PREG_SET_ORDER)) {
@@ -336,8 +347,21 @@ class MnvPs9Scanner
                 $g['fn:' . strtolower($f)] = true;
             }
         }
-        if (preg_match('/version_compare\s*\(\s*_PS_VERSION_/i', $code) || preg_match('/version_compare\s*\([^)]*_PS_VERSION_/i', $code)) {
-            $g['psversion'] = true;
+        // version_compare(_PS_VERSION_, ...), _PS_VERSION_ >= '9', and the helpers modules
+        // write for it: isPsVersionGreaterOrEqualTo('9.0.0'), isPs8(), isPrestashop9().
+        $versionChecks = array(
+            '/version_compare\s*\([^)]*_PS_VERSION_/i',
+            '/_PS_VERSION_\s*(?:[<>]=?|[=!]==?)/',
+            // Not 'max' => _PS_VERSION_ (ps_versions_compliancy).
+            '/(?<![=\-])(?:[<>]=?|[=!]==?)\s*_PS_VERSION_/',
+            '/\bis\w*Version\w*\s*\(\s*[\'"]\d/i',
+            '/\bis(?:Ps|Prestashop)_?\d+\w*\s*\(/i',
+        );
+        foreach ($versionChecks as $pattern) {
+            if (preg_match($pattern, $code)) {
+                $g['psversion'] = true;
+                break;
+            }
         }
 
         return $g;
@@ -363,9 +387,21 @@ class MnvPs9Scanner
         }
         foreach ($this->rules['libraries'] as $prefix => $lib) {
             if (strpos($lc, $prefix) === 0 && !$this->bundles($lib[1])) {
-                $this->add('error', 'library', $lib[0], $file, $line);
+                $this->add($this->libraryGuarded($prefix, $guards) ? 'warning' : 'error', 'library', $lib[0], $file, $line);
             }
         }
+    }
+
+    /** Does the file test for a class of this library (class_exists, instanceof) before using it? */
+    protected function libraryGuarded($prefix, array $guards)
+    {
+        foreach ($guards as $key => $unused) {
+            if (strpos($key, 'class:' . $prefix) === 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /** @var string|null module root of the current scan, to look for bundled libraries */
@@ -449,6 +485,39 @@ class MnvPs9Scanner
             $severity = isset($guards['psversion']) ? 'warning' : 'error';
             $this->add($severity, 'removed_const', $this->displayClass($lcTarget) . '::' . $member, $file, $line, $this->rules['consts'][$lcTarget][$member]);
         }
+    }
+
+    /**
+     * ...->controller->method(): the page controller reached through the context
+     * ($this->context->controller, Context::getContext()->controller), as module hooks
+     * use it. It is a front or a back-office controller, so both trees are looked up.
+     */
+    protected function checkControllerCall($tokens, $i, $file, array $guards)
+    {
+        $j = $this->nextIndex($tokens, $i);
+        if ($j === null || !is_array($tokens[$j]) || !$this->isObjectOperator($tokens[$j][0])) {
+            return;
+        }
+        $k = $this->nextIndex($tokens, $j);
+        if ($k === null || !is_array($tokens[$k]) || $tokens[$k][0] !== T_STRING) {
+            return;
+        }
+        $after = $this->nextIndex($tokens, $k);
+        if ($after === null || $tokens[$after] !== '(') {
+            return;
+        }
+        foreach (array('frontcontroller', 'admincontroller') as $tree) {
+            if ($this->findRemovedMethod($tree, strtolower($tokens[$k][1])) !== null) {
+                $this->checkInheritedMethod($tree, $tokens[$k][1], $file, $tokens[$k][2], $guards, $tokens, null);
+
+                return;
+            }
+        }
+    }
+
+    protected function isObjectOperator($id)
+    {
+        return $id === T_OBJECT_OPERATOR || (defined('T_NULLSAFE_OBJECT_OPERATOR') && $id === T_NULLSAFE_OBJECT_OPERATOR);
     }
 
     protected function checkInheritedMethod($parent, $method, $file, $line, array $guards, $tokens, $class)
